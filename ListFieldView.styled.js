@@ -4,9 +4,10 @@ const windowHeight = Dimensions.get('window').height;
 import { Dimensions } from "react-native";
 
 export const ListFieldViewWrapper = styled.View`
-    width: ${(props)=> windowWidth/colCount}px;
-    height: 20px;
+    width: ${(props)=> windowWidth/props.colCount}px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
 `

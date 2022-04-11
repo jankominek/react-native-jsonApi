@@ -58,22 +58,22 @@ export const Users = ({navigation}) => {
   const dataToRender = (item) => (
       <TouchableOpacity onPress={ () => navigation.navigate("specificUser", {userId: item.id, username: item.fname})}>
       <UserRowView key={item.id}>
-          <ListFieldView colCount={5.1} text={item.fname}/>
-          <ListFieldView colCount={5.1} text={item.lname}/>
-          <ListFieldView colCount={5.1} text={item.email}/>
-          <ListFieldView colCount={5.1} text={item.postCount}/>
-          <ListFieldView colCount={5.1} text={item.todoCount}/>
+          <ListFieldView key={item.id +"_" + item.id} colCount={5.1} text={item.fname}/>
+          <ListFieldView key={item.id +"_" + item.id} colCount={5.1} text={item.lname}/>
+          <ListFieldView key={item.id +"_" + item.id} colCount={5.1} text={item.email}/>
+          <ListFieldView key={item.id +"_" + item.id} colCount={5.1} text={item.postCount}/>
+          <ListFieldView key={item.id +"_" + item.id} colCount={5.1} text={item.todoCount}/>
       </UserRowView>
       </TouchableOpacity>
   )
+  const colNames = ["username", "name", "email", "posts", "todos"];
   return (
     <UsersView>
-            <UserRowView>
-          <ListFieldView colCount={5.1} text={"username"}/>
-          <ListFieldView colCount={5.1} text={"name"}/>
-          <ListFieldView colCount={5.1} text={"email"}/>
-          <ListFieldView colCount={5.1} text={"posts"}/>
-          <ListFieldView colCount={5.1} text={"todos"}/>
+
+        <UserRowView>
+            {colNames.map( (col, index) => (
+                <ListFieldView key={index} colCount={5.1} text={col}/>
+            ))}
         </UserRowView>
                 {allData && 
                 <ScrollView>
